@@ -40,16 +40,16 @@ class Home extends React.Component {
                 <h2 className="title">CAMPA'ROUND</h2>
                 <p><input type="text" value={this.state.search} onChange={this.handleUpdate.bind(this)}/></p>
                 <div className="button-style" onClick={this.handleSearch.bind(this)}>Search</div>
-
-                {this.state.campground ? 
+		
+		{this.state.campground ? 
                 <div className="campgroundWrapper">
                     <div className="imgWrapper">
-                        <img src={this.state.campground.path}/>
+                        <img src={this.state.campground.image_url}/>
                     </div>
 
                     <div className="bodyWrapper">
                         <h3>{this.state.campground.name}</h3>
-                        <p>{this.state.campground.summary}</p>
+                        <p>{this.state.campground.description}</p>
                     </div>
                 </div> : <div className="campgroundWrapper">
                     <div className="imgWrapper">
@@ -61,7 +61,21 @@ class Home extends React.Component {
                 <p><em>{this.state.search}</em> campground was not found</p>
                     </div>
                 </div> }
-                </div>
+
+		{"campground" in this.state && this.state.campground.name == undefined ? 
+			<div className="campgroundWrapper">
+			    <div className="imgWrapper">
+				<img src="/images/404.jpg"/>
+			    </div>
+
+			    <div className="bodyWrapper">
+				<h3>It is lonely here.</h3>
+				<p><em>{this.state.search}</em> campground was not found</p>
+			    </div>
+			</div>
+		: <div>error</div>}
+			
+            </div>
                 
                 <style jsx>{`
                     .navbar {
