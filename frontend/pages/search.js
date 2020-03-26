@@ -44,12 +44,12 @@ class Home extends React.Component {
 		{this.state.campground ? 
                 <div className="campgroundWrapper">
                     <div className="imgWrapper">
-                        <img src={this.state.campground.image_url}/>
+                        <img src={this.state.campground.path}/>
                     </div>
 
                     <div className="bodyWrapper">
                         <h3>{this.state.campground.name}</h3>
-                        <p>{this.state.campground.description}</p>
+                        <p>{this.state.campground.summary}</p>
                     </div>
                 </div> : <div className="campgroundWrapper">
                     <div className="imgWrapper">
