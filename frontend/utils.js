@@ -1,7 +1,7 @@
 require("isomorphic-fetch");
 
 async function getCampground(campgroundName) {
-    return fetch(`http://35.190.190.219/info?q=${campgroundName}`).then(function(resp){
+    return fetch(`http://pegasusrugby.org/api/info?q=${campgroundName}`).then(function(resp){
         return resp.json();
     });
 }
